@@ -385,8 +385,8 @@ bool PlanetzLayout::show_load_win( const CEGUI::EventArgs& e )
 	for ( directory_iterator itr( SAVES("") ); itr != end_itr; ++itr )
 	{
 		if( !is_directory( itr->status() )
-		 && boost::regex_match(itr->filename().c_str(),save_file) )
-			lb->addItem(new MyListboxItem(itr->filename()));
+		 && boost::regex_match(itr->path().filename().c_str(),save_file) )
+			lb->addItem(new MyListboxItem(itr->path().filename().c_str()));
 	}
 
 	GETWIN("SavesListWin")->setVisible(true);
